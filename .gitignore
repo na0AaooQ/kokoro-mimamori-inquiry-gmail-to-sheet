@@ -141,3 +141,17 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+##### Local Files Ignore
+node_modules/
+.DS_Store
+
+# clasp / Google Apps Script
+.clasp.json
+.clasprc.json
+
+# local env / notes
+.env
+.env.*
+local/
+tmp/
