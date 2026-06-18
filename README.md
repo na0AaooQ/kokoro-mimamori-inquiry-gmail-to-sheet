@@ -73,6 +73,22 @@ npm run open
 
 開発用GASプロジェクトは、開発用の「お問い合わせ記録用GAS登録シート」に紐づける想定です。
 
+## ローカル単体テスト
+
+PR2着手前準備として、Node.js / Jestによるローカル単体テスト基盤を追加しています。
+
+```bash
+npm test
+npm run check:syntax
+```
+
+- `npm test` で、GASサービスに依存しない純粋関数の単体テストを実行します。
+- `npm run check:syntax` で、`src/` と `tests/` 配下のJavaScript構文チェックを実行します。
+- ローカルテストでは `GmailApp` / `SpreadsheetApp` / `PropertiesService` などのApps Script組み込みサービスを直接呼びません。
+- Apps Script組み込みサービスに依存する処理は、Apps Script上で接続先を確認したうえで検証します。
+- テストデータに問い合わせ本文、実在メールアドレス、Reply-To、本番シートID、個人情報を含めません。
+- 開発用シートIDも原則としてテストコードへ直書きせず、Script Propertiesまたはローカル運用メモで管理します。
+
 ## 実装済み
 
 - `appsscript.json` にGASの初期設定を追加
@@ -81,6 +97,14 @@ npm run open
 - `src/trigger.js` に時間主導型トリガー実装方針の土台を追加
 - `src/utils.js` にPR1用の小さな共通関数を追加
 - `package.json` にclasp操作用scriptsを追加
+
+## PR2着手前準備で追加した内容
+
+- `AGENTS.md` に、今後のAIコーディングエージェント向け開発・安全方針を追加
+- Jestによるローカル単体テスト基盤を追加
+- `tests/` 配下に `utils` / `config` の初期テストを追加
+- `src/utils.js` / `src/config.js` に、Node.js / Jestから参照できるconditional exportsを追加
+- Gmail取得、Sheets追記、自動返信、実Gmail・実スプレッドシートへアクセスするテストは未実装のまま維持
 
 ## PR1で未実装の内容
 
