@@ -4,7 +4,10 @@
   "description": "「こころみまもり」のお問い合わせ受付や管理用のGoogle Apps Scriptのソースコード管理リポジトリ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "push": "clasp push",
+    "pull": "clasp pull",
+    "open": "clasp open-script",
+    "status": "clasp status"
   },
   "repository": {
     "type": "git",
